@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js"></script>
+    <title>Digital Clock</title>
+  </head> 
+  <body>
+  
+  <div class="main">
+      <h2>Digital Clock</h2>
+      <div class="container">
+          <div>
+              <span id="hours">00</span>
+              <span class="text">Hours</span>
+          </div>
+          <div>
+              <span id="minutes">00</span>
+              <span class="text">Minutes</span>
+          </div>
+          <div>
+              <span id="seconds">00</span>
+              <span class="text">Seconds</span>
+          </div>
+          <div>
+              <span id="ampm">AM</span>
+          </div>
+      </div>
+  </div>
+  <script>
+      let h = document.getElementById('hours');
+      let m = document.getElementById('minutes');
+      let s = document.getElementById('seconds');
+      let ap = document.getElementById('ampm');
+      
+      setInterval(() => {
+          let dt = new Date();
+          h.innerText=dt.getHours();
+          m.innerText=dt.getMinutes();
+          s.innerText=dt.getSeconds();
+          if(h.innerText>12){
+             h.innerText=h.innerText-12;
+             ap.innerText="PM"
+          }
+          if(h.innerText<10){
+              h.innerText='0'+ h.innerText;
+          }
+          if(m.innerText<10){
+              m.innerText='0'+ m.innerText;
+          }
+          if(s.innerText<10){
+              s.innerText='0'+ s.innerText;
+          }
+      }, 1000);
+      
+  </script>
+
+  </body>
+
